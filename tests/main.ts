@@ -1,5 +1,5 @@
 import { Chessground } from '../src/chessground';
-import { initial } from "../src/fen"
+import { initial } from '../src/fen';
 import type { Key } from '../src/types';
 import { allKeys } from '../src/util';
 
@@ -8,7 +8,6 @@ const chessContainer = document.getElementById('board-container')!;
 const fenOutput = document.getElementById('fen-output') as HTMLTextAreaElement;
 const statusEl = document.getElementById('status')!;
 const turnEl = document.getElementById('turn-indicator')!;
-
 
 // ---- 创建国际象棋棋盘（@lichess-org/chessground）----
 const chessGround = Chessground(chessContainer, {

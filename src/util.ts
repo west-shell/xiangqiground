@@ -114,33 +114,27 @@ export function computeSquareCenter(key: cg.Key, asWhite: boolean, bounds: DOMRe
 
 export const diff = (a: number, b: number): number => Math.abs(a - b);
 
+// Xiangqi: palace is the 3x3 area (columns 3-5)
+export const isInPalace = (pos: cg.Pos, color: cg.Color): boolean => {
+  const [x, y] = pos;
+  if (x < 3 || x > 5) return false;
+  return color === 'white' ? y >= 0 && y <= 2 : y >= 7 && y <= 9;
+};
+
+// Xiangqi: own half of the board (before the river)
+export const isInOwnHalf = (pos: cg.Pos, color: cg.Color): boolean => {
+  return color === 'white' ? pos[1] <= 4 : pos[1] >= 5;
+};
+
+// Xiangqi: pawn has crossed the river
+export const hasCrossedRiver = (pos: cg.Pos, color: cg.Color): boolean => !isInOwnHalf(pos, color);
+
 export const knightDir: cg.DirectionalCheck = (x1, y1, x2, y2) => diff(x1, x2) * diff(y1, y2) === 2;
 
 export const rookDir: cg.DirectionalCheck = (x1, y1, x2, y2) => (x1 === x2) !== (y1 === y2);
 
-export const bishopDir: cg.DirectionalCheck = (x1, y1, x2, y2) => diff(x1, x2) === diff(y1, y2) && x1 !== x2;
-
-export const queenDir: cg.DirectionalCheck = (x1, y1, x2, y2) =>
-  rookDir(x1, y1, x2, y2) || bishopDir(x1, y1, x2, y2);
-
-export const kingDirNonCastling: cg.DirectionalCheck = (x1, y1, x2, y2) =>
-  Math.max(diff(x1, x2), diff(y1, y2)) === 1;
-
-export const pawnDirCapture = (x1: number, y1: number, x2: number, y2: number, isDirectionUp: boolean) =>
-  diff(x1, x2) === 1 && y2 === y1 + (isDirectionUp ? 1 : -1);
-
-export const pawnDirAdvance = (x1: number, y1: number, x2: number, y2: number, isDirectionUp: boolean) => {
-  const step = isDirectionUp ? 1 : -1;
-  return (
-    x1 === x2 &&
-    (y2 === y1 + step ||
-      // allow 2 squares from first two ranks, for horde
-      (y2 === y1 + 2 * step && (isDirectionUp ? y1 <= 1 : y1 >= 8)))
-  );
-};
-
 /** Returns all board squares between (x1, y1) and (x2, y2) exclusive,
- *  along a straight line (rook or bishop path). Returns [] if not aligned, or none between.
+ *  along a straight line. Returns [] if not aligned, or none between.
  */
 export const squaresBetween = (x1: number, y1: number, x2: number, y2: number): cg.Key[] => {
   const dx = x2 - x1;
