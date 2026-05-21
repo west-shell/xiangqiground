@@ -5,3 +5,6 @@ dist/
 /*.js
 /*.d.ts
 /*.js.map
+
+# Claude Code local settings
+.claude/
