@@ -86,7 +86,7 @@ export function start(s: State, e: cg.MouchEvent): void {
 function pieceCloseTo(s: State, pos: cg.NumberPair): boolean {
   const asWhite = board.whitePov(s),
     bounds = s.dom.bounds(),
-    radiusSq = Math.pow((s.touchIgnoreRadius * bounds.width) / 16, 2) * 2;
+    radiusSq = Math.pow((s.touchIgnoreRadius * bounds.width) / 18, 2) * 2;
   for (const key of s.pieces.keys()) {
     const center = util.computeSquareCenter(key, asWhite, bounds);
     if (util.distanceSq(center, pos) <= radiusSq) return true;
@@ -140,8 +140,8 @@ function processDrag(s: State): void {
 
         const bounds = s.dom.bounds();
         util.translate(cur.element, [
-          cur.pos[0] - bounds.left - bounds.width / 16,
-          cur.pos[1] - bounds.top - bounds.height / 16,
+          cur.pos[0] - bounds.left - bounds.width / 18,
+          cur.pos[1] - bounds.top - bounds.height / 20,
         ]);
 
         if (s.jsHover) handleJsHover(s, cur);

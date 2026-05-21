@@ -348,11 +348,11 @@ export function getKeyAtDomPos(
   asWhite: boolean,
   bounds: DOMRectReadOnly,
 ): cg.Key | undefined {
-  let file = Math.floor((8 * (pos[0] - bounds.left)) / bounds.width);
-  if (!asWhite) file = 7 - file;
-  let rank = 7 - Math.floor((8 * (pos[1] - bounds.top)) / bounds.height);
-  if (!asWhite) rank = 7 - rank;
-  return file >= 0 && file < 8 && rank >= 0 && rank < 8 ? pos2key([file, rank]) : undefined;
+  let file = Math.floor((9 * (pos[0] - bounds.left)) / bounds.width);
+  if (!asWhite) file = 8 - file;
+  let rank = 9 - Math.floor((10 * (pos[1] - bounds.top)) / bounds.height);
+  if (!asWhite) rank = 9 - rank;
+  return file >= 0 && file < 9 && rank >= 0 && rank < 10 ? pos2key([file, rank]) : undefined;
 }
 
 export function getSnappedKeyAtDomPos(

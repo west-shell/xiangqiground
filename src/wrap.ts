@@ -58,7 +58,7 @@ export function renderWrap(element: HTMLElement, s: HeadlessState): Elements {
     const ranksPositionClass = s.ranksPosition === 'left' ? ' left' : '';
 
     if (s.coordinatesOnSquares) {
-      const rankN: (i: number) => number = s.orientation === 'white' ? i => i + 1 : i => 8 - i;
+      const rankN: (i: number) => number = s.orientation === 'white' ? i => i + 1 : i => 10 - i;
       files.forEach((f, i) =>
         container.appendChild(
           renderCoords(
@@ -87,13 +87,13 @@ export function renderWrap(element: HTMLElement, s: HeadlessState): Elements {
     container.appendChild(ghost);
   }
 
-  return { board, container, wrap: element, ghost, shapes, shapesBelow, custom, customBelow, autoPieces };
+  return { board, container, wrap: element, ghost, shapes, shapesBelow, custom, customBelow };
 }
 
 function svgContainer(cls: string, isShapes: boolean) {
   const svg = setAttributes(createSVG('svg'), {
     class: cls,
-    viewBox: isShapes ? '-4 -4 8 8' : '-3.5 -3.5 8 8',
+    viewBox: isShapes ? '-4 -4.5 9 10' : '-3.5 -4 9 10',
     preserveAspectRatio: 'xMidYMid slice',
   });
   if (isShapes) svg.appendChild(createDefs());

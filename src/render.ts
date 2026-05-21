@@ -188,7 +188,7 @@ export function updateBounds(s: State): void {
   const bounds = s.dom.elements.wrap.getBoundingClientRect();
   const container = s.dom.elements.container;
   const ratio = bounds.height / bounds.width;
-  const width = (Math.floor((bounds.width * window.devicePixelRatio) / 8) * 8) / window.devicePixelRatio;
+  const width = (Math.floor((bounds.width * window.devicePixelRatio) / 9) * 9) / window.devicePixelRatio;
   const height = width * ratio;
   container.style.width = width + 'px';
   container.style.height = height + 'px';
@@ -208,21 +208,13 @@ function removeNodes(s: State, nodes: HTMLElement[]): void {
 function posZIndex(pos: cg.Pos, asWhite: boolean): string {
   const minZ = 3;
   const rank = pos[1];
-  const z = asWhite ? minZ + 7 - rank : minZ + rank;
+  const z = asWhite ? minZ + 9 - rank : minZ + rank;
   return `${z}`;
 }
 
 const pieceNameOf = (piece: cg.Piece): string => `${piece.color} ${piece.role}`;
 
-const normalizeLastMoveStandardRookCastle = (s: State, k: cg.Key): cg.Key =>
-  !!s.lastMove?.[1] &&
-  !s.pieces.has(s.lastMove[1]) &&
-  s.lastMove[0][0] === 'e' &&
-  ['h', 'a'].includes(s.lastMove[1][0]) &&
-  s.lastMove[0][1] === s.lastMove[1][1] &&
-  util.squaresBetween(...key2pos(s.lastMove[0]), ...key2pos(s.lastMove[1])).some(sq => s.pieces.has(sq))
-    ? (((k > s.lastMove[0] ? 'g' : 'c') + k[1]) as cg.Key)
-    : k;
+const normalizeLastMoveStandardRookCastle = (s: State, k: cg.Key): cg.Key => k;
 
 function computeSquareClasses(s: State): cg.SquareClasses {
   const squares: cg.SquareClasses = new Map();

@@ -350,7 +350,7 @@ function renderLabel(
   return g;
 }
 
-const orient = (pos: cg.Pos, color: cg.Color): cg.Pos => (color === 'white' ? pos : [7 - pos[0], 7 - pos[1]]);
+const orient = (pos: cg.Pos, color: cg.Color): cg.Pos => (color === 'white' ? pos : [8 - pos[0], 9 - pos[1]]);
 
 const mod = (n: number, m: number): number => ((n % m) + m) % m;
 
@@ -379,11 +379,11 @@ const makeCustomBrush = (base: DrawBrush, modifiers: DrawModifiers | undefined):
   !modifiers
     ? base
     : {
-        color: base.color,
-        opacity: Math.round(base.opacity * 10) / 10,
-        lineWidth: Math.round(modifiers.lineWidth || base.lineWidth),
-        key: [base.key, modifiers.lineWidth].filter(Boolean).join(''),
-      };
+      color: base.color,
+      opacity: Math.round(base.opacity * 10) / 10,
+      lineWidth: Math.round(modifiers.lineWidth || base.lineWidth),
+      key: [base.key, modifiers.lineWidth].filter(Boolean).join(''),
+    };
 
 const circleWidth = (): [number, number] => [3 / 64, 4 / 64];
 
@@ -400,10 +400,11 @@ const opacity = (brush: DrawBrush, current: boolean, pendingErase: boolean): num
 
 const arrowMargin = (shorten: boolean): number => (shorten ? 20 : 10) / 64;
 
-function pos2user(pos: cg.Pos, bounds: DOMRectReadOnly): cg.NumberPair {
-  const xScale = Math.min(1, bounds.width / bounds.height);
-  const yScale = Math.min(1, bounds.height / bounds.width);
-  return [(pos[0] - 3.5) * xScale, (3.5 - pos[1]) * yScale];
+function pos2user(pos: cg.Pos, _bounds: DOMRectReadOnly): cg.NumberPair {
+  // 9 columns (0..8) x 10 rows (0..9) â†?viewBox -4 -4.5 9 10
+  // viewBox width 9 matches 9 columns, height 10 matches 10 rows
+  // board cell maps to 1x1 viewBox unit, no extra scaling needed
+  return [pos[0] - 3.5, 5 - pos[1]];
 }
 
 function filterBox(from: cg.NumberPair, to: cg.NumberPair): SVGElement {
