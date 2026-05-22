@@ -9,74 +9,74 @@ import { type State } from './state.js';
 import type * as cg from './types.js';
 
 export interface Api {
-  // reconfigure the instance. Accepts all config options, except for viewOnly & drawable.visible.
-  // board will be animated accordingly, if animations are enabled.
+  // 重新配置实例。接受所有配置选项，除 viewOnly 和 drawable.visible 外。
+  // 如果启用了动画，棋盘将相应地执行动画效果。
   set(config: Config): void;
 
-  // read chessground state; write at your own risks.
+  // 读取 chessground 状态；写入操作需自行承担风险。
   state: State;
 
-  // get the position as a FEN string (only contains pieces, no flags)
-  // e.g. rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
+  // 获取 FEN 字符串表示的当前局面（仅包含棋子，不含标志位）
+  // 例如：rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR
   getFen(): cg.FEN;
 
-  // change the view angle
+  // 切换棋盘视角
   toggleOrientation(): void;
 
-  // perform a move programmatically
+  // 以编程方式执行一步走棋
   move(orig: cg.Key, dest: cg.Key): void;
 
-  // add and/or remove arbitrary pieces on the board
+  // 在棋盘上添加和/或移除任意棋子
   setPieces(pieces: cg.PiecesDiff): void;
 
-  // click a square programmatically
+  // 以编程方式点击一个格子
   selectSquare(key: cg.Key | null, force?: boolean): void;
 
-  // put a new piece on the board
+  // 在棋盘上放置一个新棋子
   newPiece(piece: cg.Piece, key: cg.Key): void;
 
-  // play the current premove, if any; returns true if premove was played
+  // 执行当前的预走棋（premove），如果有的话；如果预走棋被执行则返回 true
   playPremove(): boolean;
 
-  // cancel the current premove, if any
+  // 取消当前的预走棋（premove），如果有的话
   cancelPremove(): void;
 
-  // play the current predrop, if any; returns true if premove was played
+  // 执行当前的预放置（predrop），如果有的话；如果预放置被执行则返回 true
   playPredrop(validate: (drop: cg.Drop) => boolean): boolean;
 
-  // cancel the current predrop, if any
+  // 取消当前的预放置（predrop），如果有的话
   cancelPredrop(): void;
 
-  // cancel the current move being made
+  // 取消当前正在进行的走棋操作
   cancelMove(): void;
 
-  // cancel current move and prevent further ones
+  // 取消当前走棋并阻止后续操作
   stop(): void;
 
-  // make squares explode (atomic chess)
+  // 让格子爆炸（原子象棋模式）
   explode(keys: cg.Key[]): void;
 
-  // programmatically draw user shapes
+  // 以编程方式绘制用户自定义图形
   setShapes(shapes: DrawShape[]): void;
 
-  // programmatically draw auto shapes
+  // 以编程方式绘制自动生成的图形
   setAutoShapes(shapes: DrawShape[]): void;
 
-  // square name at this DOM position (like "e4")
+  // 获取 DOM 坐标位置对应的格子名称（比如 "e4"）
   getKeyAtDomPos(pos: cg.NumberPair): cg.Key | undefined;
 
-  // only useful when CSS changes the board width/height ratio (for 3D)
+  // 仅在 CSS 改变了棋盘宽高比时有用（用于 3D 效果）
   redrawAll: cg.Redraw;
 
-  // for crazyhouse and board editors
+  // 用于 crazyhouse 模式和棋盘编辑器
   dragNewPiece(piece: cg.Piece, event: cg.MouchEvent, force?: boolean): void;
 
-  // unbinds all events
-  // (important for document-wide events like scroll and mousemove)
+  // 解绑所有事件
+  //（对于 scroll 和 mousemove 这类文档级别的事件尤其重要）
   destroy: cg.Unbind;
 }
 
-// see API types and documentations in dts/api.d.ts
+// 有关 API 类型和文档，请参见 dts/api.d.ts
 export function start(state: State, redrawAll: cg.Redraw): Api {
   function toggleOrientation(): void {
     board.toggleOrientation(state);
@@ -119,7 +119,7 @@ export function start(state: State, redrawAll: cg.Redraw): Api {
     playPremove(): boolean {
       if (state.premovable.current) {
         if (anim(board.playPremove, state)) return true;
-        // if the premove couldn't be played, redraw to clear it up
+        // 如果预走棋无法执行，则重绘以清除预走棋的状态
         state.dom.redraw();
       }
       return false;
