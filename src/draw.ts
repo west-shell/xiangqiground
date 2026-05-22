@@ -1,4 +1,4 @@
-import { cancelMove, getKeyAtDomPos, getSnappedKeyAtDomPos, unselect, whitePov } from './board.js';
+import { cancelMove, getKeyAtDomPos, unselect, whitePov } from './board.js';
 import { type State } from './state.js';
 import type * as cg from './types.js';
 import { eventPosition, isRightButton } from './util.js';
@@ -95,9 +95,7 @@ export function processDraw(state: State): void {
       if (!keyAtDomPos) {
         cur.snapToValidMove = false;
       }
-      const mouseSq = cur.snapToValidMove
-        ? getSnappedKeyAtDomPos(cur.orig, cur.pos, whitePov(state), state.dom.bounds())
-        : keyAtDomPos;
+      const mouseSq = keyAtDomPos;
       if (mouseSq !== cur.mouseSq) {
         cur.mouseSq = mouseSq;
         cur.dest = mouseSq !== cur.orig ? mouseSq : undefined;
