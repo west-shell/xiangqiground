@@ -28,7 +28,7 @@ const lines = ['/** Chinese chess piece SVGs - generated */'];
 for (const [role, color, char, stroke] of pieces) {
   const svg = svgTemplate(stroke, char);
   const b64 = Buffer.from(svg, 'utf-8').toString('base64');
-  lines.push(`.cg-wrap piece.${role}.${color} {`);
+  lines.push(`.xq-wrap piece.${role}.${color} {`);
   lines.push(`  background-image: url('data:image/svg+xml;base64,${b64}');`);
   lines.push(`}`);
   lines.push('');

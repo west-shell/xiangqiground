@@ -15,7 +15,7 @@ import { key2pos } from './util.js';
 
 /*
     -- DOM hierarchy --
-    <svg class="cg-shapes">      (<= svg)
+    <svg class="xq-shapes">      (<= svg)
       <defs>
         ...(for brushes)...
       </defs>
@@ -23,7 +23,7 @@ import { key2pos } from './util.js';
         ...(for arrows and circles)...
       </g>
     </svg>
-    <svg class="cg-custom-svgs"> (<= customSvg)
+    <svg class="xq-custom-svgs"> (<= customSvg)
       <g>
         ...(for custom svgs)...
       </g>
@@ -40,7 +40,7 @@ export { createElement, setAttributes };
 
 export function createDefs(): Element {
   const defs = createElement('defs');
-  const filter = setAttributes(createElement('filter'), { id: 'cg-filter-blur' });
+  const filter = setAttributes(createElement('filter'), { id: 'xq-filter-blur' });
   filter.appendChild(setAttributes(createElement('feGaussianBlur'), { stdDeviation: '0.013' }));
   defs.appendChild(filter);
   return defs;
@@ -284,7 +284,7 @@ function renderArrow(
   if (!s.modifiers?.hilite) return renderLine(false);
 
   const g = setAttributes(createElement('g'), { opacity: brush.opacity });
-  const blurred = setAttributes(createElement('g'), { filter: 'url(#cg-filter-blur)' });
+  const blurred = setAttributes(createElement('g'), { filter: 'url(#xq-filter-blur)' });
   blurred.appendChild(filterBox(from, to));
   blurred.appendChild(renderLine(true));
   g.appendChild(blurred);

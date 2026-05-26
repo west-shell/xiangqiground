@@ -1,10 +1,10 @@
-.cg-wrap {
+.xq-wrap {
   box-sizing: content-box;
   position: relative;
   display: block;
 }
 
-cg-container {
+xq-container {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -16,7 +16,7 @@ cg-container {
   margin: auto;
 }
 
-cg-board {
+xq-board {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,11 +30,11 @@ cg-board {
   background-size: cover;
 }
 
-.cg-wrap.manipulable cg-board {
+.xq-wrap.manipulable xq-board {
   cursor: pointer;
 }
 
-cg-board square {
+xq-board square {
   position: absolute;
   top: 0;
   left: 0;
@@ -43,16 +43,16 @@ cg-board square {
   pointer-events: none;
 }
 
-cg-board square.move-dest {
+xq-board square.move-dest {
   pointer-events: auto;
 }
 
-cg-board square.last-move-orig,
-cg-board square.last-move-dest {
+xq-board square.last-move-orig,
+xq-board square.last-move-dest {
   will-change: transform;
 }
 
-.cg-wrap piece {
+.xq-wrap piece {
   position: absolute;
   top: 0;
   left: 0;
@@ -64,7 +64,7 @@ cg-board square.last-move-dest {
   pointer-events: none;
 }
 
-cg-board piece.dragging {
+xq-board piece.dragging {
   cursor: move;
   /* !important to override z-index from 3D piece inline style */
   z-index: 11 !important;
@@ -79,11 +79,11 @@ piece.fading {
   opacity: 0.5;
 }
 
-.cg-wrap piece.ghost {
+.xq-wrap piece.ghost {
   opacity: 0.3;
 }
 
-.cg-wrap piece svg {
+.xq-wrap piece svg {
   overflow: hidden;
   position: relative;
   top: 0px;
@@ -95,11 +95,11 @@ piece.fading {
   opacity: 0.6;
 }
 
-.cg-wrap cg-auto-pieces,
-.cg-wrap .cg-shapes,
-.cg-wrap .cg-custom-svgs,
-.cg-wrap .cg-shapes-below,
-.cg-wrap .cg-custom-below {
+.xq-wrap xq-auto-pieces,
+.xq-wrap .xq-shapes,
+.xq-wrap .xq-custom-svgs,
+.xq-wrap .xq-shapes-below,
+.xq-wrap .xq-custom-below {
   overflow: visible;
   position: absolute;
   top: 0px;
@@ -109,40 +109,40 @@ piece.fading {
   pointer-events: none;
 }
 
-.cg-wrap cg-auto-pieces {
+.xq-wrap xq-auto-pieces {
   z-index: 2;
 }
 
-.cg-wrap cg-auto-pieces piece {
+.xq-wrap xq-auto-pieces piece {
   opacity: 0.3;
 }
 
-.cg-wrap .cg-shapes {
+.xq-wrap .xq-shapes {
   overflow: hidden;
   opacity: 0.6;
   z-index: 2;
 }
 
-.cg-wrap .cg-shapes-below {
+.xq-wrap .xq-shapes-below {
   overflow: hidden;
   z-index: 1;
 }
 
-.cg-wrap .cg-custom-below {
+.xq-wrap .xq-custom-below {
   z-index: 1;
 }
 
-.cg-wrap .cg-custom-svgs {
+.xq-wrap .xq-custom-svgs {
   /* over piece.anim = 8, but under piece.dragging = 11 */
   z-index: 9;
 }
 
-.cg-wrap .cg-custom-svgs svg,
-.cg-wrap .cg-custom-below svg {
+.xq-wrap .xq-custom-svgs svg,
+.xq-wrap .xq-custom-below svg {
   overflow: visible;
 }
 
-.cg-wrap coords {
+.xq-wrap coords {
   position: absolute;
   display: flex;
   pointer-events: none;
@@ -151,7 +151,7 @@ piece.fading {
   font-size: 12px;
 }
 
-.cg-wrap coords.files {
+.xq-wrap coords.files {
   bottom: 1%;
   left: 0;
   flex-flow: row;
@@ -162,55 +162,55 @@ piece.fading {
   line-height: 16px;
 }
 
-.cg-wrap coords.files.top {
+.xq-wrap coords.files.top {
   top: 1%;
   bottom: auto;
 }
 
-.cg-wrap coords coord {
+.xq-wrap coords coord {
   flex: 1 1 auto;
 }
 
 /* Interactive board square colors */
-cg-board square.move-dest {
+xq-board square.move-dest {
   background: radial-gradient(rgba(20, 85, 30, 0.5) 22%, #208530 0, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0) 0);
 }
 
-cg-board square.premove-dest {
+xq-board square.premove-dest {
   background: radial-gradient(rgba(20, 30, 85, 0.5) 22%, #203085 0, rgba(0, 0, 0, 0.3) 0, rgba(0, 0, 0, 0) 0);
 }
 
-cg-board square.oc.move-dest {
+xq-board square.oc.move-dest {
   background: radial-gradient(transparent 0%, transparent 80%, rgba(20, 85, 0, 0.3) 80%);
 }
 
-cg-board square.oc.premove-dest {
+xq-board square.oc.premove-dest {
   background: radial-gradient(transparent 0%, transparent 80%, rgba(20, 30, 85, 0.2) 80%);
 }
 
-cg-board square.move-dest:hover,
-cg-board square.move-dest.hover {
+xq-board square.move-dest:hover,
+xq-board square.move-dest.hover {
   background: rgba(20, 85, 30, 0.3);
 }
 
-cg-board square.premove-dest:hover,
-cg-board square.premove-dest.hover {
+xq-board square.premove-dest:hover,
+xq-board square.premove-dest.hover {
   background: rgba(20, 30, 85, 0.2);
 }
 
-cg-board square.last-move-orig {
+xq-board square.last-move-orig {
   background: linear-gradient(rgba(155, 199, 0, 0.41), rgba(155, 199, 0, 0.8)) center / 30% 30% no-repeat;
 }
 
-cg-board square.last-move-dest {
+xq-board square.last-move-dest {
   background-color: rgba(20, 85, 30, 0.5);
 }
 
-cg-board square.selected {
+xq-board square.selected {
   background-color: rgba(20, 85, 30, 0.5);
 }
 
-cg-board square.check {
+xq-board square.check {
   background: radial-gradient(ellipse at center,
       rgba(255, 0, 0, 1) 0%,
       rgba(231, 0, 0, 1) 25%,
@@ -218,7 +218,7 @@ cg-board square.check {
       rgba(158, 0, 0, 0) 100%);
 }
 
-cg-board square.current-premove {
+xq-board square.current-premove {
   background-color: rgba(20, 30, 85, 0.5);
 }
 

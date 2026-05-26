@@ -156,7 +156,7 @@ const css = `/**
  * 生成命令：node scripts/gen-board.js
  */
 
-cg-board {
+xq-board {
   background-image: url('data:image/svg+xml;base64,${b64}');
   background-size: 100% 100%;
 }

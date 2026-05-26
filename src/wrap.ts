@@ -4,33 +4,33 @@ import { type Color, colors, type Elements } from './types.js';
 import { createEl, opposite, setVisible } from './util.js';
 
 export function renderWrap(element: HTMLElement, s: HeadlessState): Elements {
-  // .cg-wrap (element passed to Chessground)
-  //   cg-container
-  //     cg-board
-  //     svg.cg-shapes
+  // .xq-wrap (element passed to Chessground)
+  //   xq-container
+  //     xq-board
+  //     svg.xq-shapes
   //       defs
   //       g
-  //     svg.cg-custom-svgs
+  //     svg.xq-custom-svgs
   //       g
-  //     cg-auto-pieces
+  //     xq-auto-pieces
   //     coords.files
   //     piece.ghost
 
   element.innerHTML = '';
 
-  // ensure the cg-wrap class is set
+  // ensure the xq-wrap class is set
   // so bounds calculation can use the CSS width/height values
   // add that class yourself to the element before calling chessground
   // for a slight performance improvement! (avoids recomputing style)
-  element.classList.add('cg-wrap');
+  element.classList.add('xq-wrap');
 
   for (const c of colors) element.classList.toggle('orientation-' + c, s.orientation === c);
   element.classList.toggle('manipulable', !s.viewOnly);
 
-  const container = createEl('cg-container');
+  const container = createEl('xq-container');
   element.appendChild(container);
 
-  const board = createEl('cg-board');
+  const board = createEl('xq-board');
   container.appendChild(board);
 
   let shapesBelow: SVGElement | undefined;
@@ -40,10 +40,10 @@ export function renderWrap(element: HTMLElement, s: HeadlessState): Elements {
   let autoPieces: HTMLElement | undefined;
 
   if (s.drawable.visible) {
-    [shapesBelow, shapes] = ['cg-shapes-below', 'cg-shapes'].map(cls => svgContainer(cls, true));
-    [customBelow, custom] = ['cg-custom-below', 'cg-custom-svgs'].map(cls => svgContainer(cls, false));
+    [shapesBelow, shapes] = ['xq-shapes-below', 'xq-shapes'].map(cls => svgContainer(cls, true));
+    [customBelow, custom] = ['xq-custom-below', 'xq-custom-svgs'].map(cls => svgContainer(cls, false));
 
-    autoPieces = createEl('cg-auto-pieces');
+    autoPieces = createEl('xq-auto-pieces');
 
     container.appendChild(shapesBelow);
     container.appendChild(customBelow);
