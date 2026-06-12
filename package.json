@@ -19,7 +19,7 @@
     }
   },
   "devDependencies": {
-    "esbuild": "^0.25.12",
+    "esbuild": "^0.28.1",
     "jsdom": "^26.1.0",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
