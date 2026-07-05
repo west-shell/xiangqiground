@@ -1,6 +1,6 @@
 {
-  "name": "chessground-xq",
-  "version": "10.1.1",
+  "name": "xiangqiground",
+  "version": "1.0.0",
   "//": "version is managed by the build system",
   "description": "chessround for Chinese chess (xiangqi)",
   "type": "module",
@@ -19,7 +19,6 @@
     }
   },
   "devDependencies": {
-    "@lichess-org/chessground": "^10.1.1",
     "esbuild": "^0.25.12",
     "jsdom": "^26.1.0",
     "oxfmt": "^0.42.0",
