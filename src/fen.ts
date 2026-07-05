@@ -8,7 +8,7 @@ const roles: { [letter: string]: cg.Role } = {
   c: 'cannon',
   n: 'knight',
   r: 'rook',
-  b: 'elephant',
+  b: 'bishop',
   a: 'advisor',
   k: 'king',
 };
@@ -18,7 +18,7 @@ const letters = {
   cannon: 'c',
   knight: 'n',
   rook: 'r',
-  elephant: 'b',
+  bishop: 'b',
   advisor: 'a',
   king: 'k',
 };

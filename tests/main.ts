@@ -70,7 +70,7 @@ function flipBoard() {
 
 // ---- 重置 ----
 function resetBoard() {
-  chessGround.set({ fen: initial });
+  chessGround.set({ fen: initial, lastMove: undefined });
   updateInfo();
 }
 

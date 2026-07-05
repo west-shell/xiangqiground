@@ -104,7 +104,7 @@ export type Milliseconds = number;
 export type KHz = number;
 
 export const colors = ['white', 'black'] as const;
-export const roles = ['king', 'advisor', 'elephant', 'rook', 'knight', 'cannon', 'pawn'] as const;
+export const roles = ['king', 'advisor', 'bishop', 'rook', 'knight', 'cannon', 'pawn'] as const;
 export const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'] as const;
 export const ranks = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] as const;
 

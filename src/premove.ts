@@ -58,7 +58,7 @@ const advisor: Mobility = (ctx: MobilityContext) => {
   return util.isInPalace(ctx.dest.pos, ctx.color);
 };
 
-const elephant: Mobility = (ctx: MobilityContext) => {
+const bishop: Mobility = (ctx: MobilityContext) => {
   const [x1, y1] = ctx.orig.pos;
   const [x2, y2] = ctx.dest.pos;
 
@@ -98,7 +98,7 @@ const mobilityByRole: Record<string, Mobility> = {
   rook,
   cannon,
   advisor,
-  elephant,
+  bishop,
   king,
 };
 
