@@ -10,7 +10,6 @@ import {
   setVisible,
   translate,
 } from './util.js';
-import * as util from './util.js';
 
 type PieceName = string; // `$color $role`
 

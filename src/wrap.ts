@@ -1,7 +1,7 @@
 import { type HeadlessState } from './state.js';
 import { createDefs, createElement as createSVG, setAttributes } from './svg.js';
 import { type Color, colors, type Elements } from './types.js';
-import { createEl, opposite, setVisible } from './util.js';
+import { createEl, setVisible } from './util.js';
 
 export function renderWrap(element: HTMLElement, s: HeadlessState): Elements {
   // .xq-wrap (element passed to Chessground)

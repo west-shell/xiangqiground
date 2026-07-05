@@ -7,7 +7,7 @@
  * 用法：node scripts/gen-board.js
  */
 
-import fs from 'fs';
+import fs from 'node:fs';
 
 const CELL = 50;
 const PAD = CELL * 0.5;
@@ -22,18 +22,11 @@ const LINE = '#555';
 const MARGIN = CELL * 0.1;
 
 function buildSvg() {
-  const lines = [];
-
-  // 背景
-  lines.push(`<rect width="${W}" height="${H}" fill="${BG}" rx="8"/>`);
-
-  // 外框
-  lines.push(
+  const lines = [
+    `<rect width="${W}" height="${H}" fill="${BG}" rx="8"/>`,
     `<rect x="${PAD - MARGIN}" y="${PAD - MARGIN}" width="${(COLS - 1) * CELL + 2 * MARGIN}" height="${(ROWS - 1) * CELL + 2 * MARGIN}" fill="none" stroke="${LINE}" stroke-width="3"/>`,
-  );
-  lines.push(
     `<rect x="${PAD}" y="${PAD}" width="${(COLS - 1) * CELL}" height="${(ROWS - 1) * CELL}" fill="none" stroke="${LINE}" stroke-width="1"/>`,
-  );
+  ];
 
   // 横线
   for (let y = 0; y < ROWS; y++) {
