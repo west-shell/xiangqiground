@@ -34,7 +34,7 @@ npm install xiangqiground
 import { Chessground } from 'xiangqiground';
 import 'xiangqiground/assets/chessground.base.css';
 import 'xiangqiground/assets/chessground.board.css';
-import 'xiangqiground/assets/chessground.xq.css';
+import 'xiangqiground/assets/chessground.piece.css';
 
 const ground = Chessground(document.getElementById('board')!, {
   orientation: 'white',
