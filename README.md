@@ -45,10 +45,10 @@ const ground = Chessground(document.getElementById('board')!, {
 ### API
 
 ```ts
-ground.getFen();                // current position as Xiangqi FEN
-ground.move('b0', 'c2');        // programmatic move
-ground.toggleOrientation();     // flip board
-ground.set({ fen: 'start' });   // reset to initial position
+ground.getFen(); // current position as Xiangqi FEN
+ground.move('b0', 'c2'); // programmatic move
+ground.toggleOrientation(); // flip board
+ground.set({ fen: 'start' }); // reset to initial position
 ground.set({ fen: initial, lastMove: undefined }); // reset and clear markers
 ```
 
@@ -56,15 +56,15 @@ See [API types](src/api.ts) and [Config types](src/config.ts) for full documenta
 
 ### Roles
 
-| Role | FEN letter | White (红) | Black (黑) |
-|------|-----------|-----------|-----------|
-| king | k | 帅 | 将 |
-| advisor | a | 仕 | 士 |
-| bishop | b | 相 | 象 |
-| rook | r | 俥 | 车 |
-| knight | n | 傌 | 马 |
-| cannon | c | 炮 | 砲 |
-| pawn | p | 兵 | 卒 |
+| Role    | FEN letter | White (红) | Black (黑) |
+| ------- | ---------- | ---------- | ---------- |
+| king    | k          | 帅         | 将         |
+| advisor | a          | 仕         | 士         |
+| bishop  | b          | 相         | 象         |
+| rook    | r          | 俥         | 车         |
+| knight  | n          | 傌         | 马         |
+| cannon  | c          | 炮         | 砲         |
+| pawn    | p          | 兵         | 卒         |
 
 ### Board Coordinates
 

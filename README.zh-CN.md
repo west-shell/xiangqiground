@@ -46,10 +46,10 @@ const ground = Chessground(document.getElementById('board')!, {
 ### API
 
 ```ts
-ground.getFen();                // 当前局面 FEN
-ground.move('b0', 'c2');        // 编程式走子
-ground.toggleOrientation();     // 翻转棋盘
-ground.set({ fen: 'start' });   // 重置为初始局面
+ground.getFen(); // 当前局面 FEN
+ground.move('b0', 'c2'); // 编程式走子
+ground.toggleOrientation(); // 翻转棋盘
+ground.set({ fen: 'start' }); // 重置为初始局面
 ground.set({ fen: initial, lastMove: undefined }); // 重置并清除标记
 ```
 
@@ -57,15 +57,15 @@ ground.set({ fen: initial, lastMove: undefined }); // 重置并清除标记
 
 ### 棋子角色
 
-| 角色 | FEN 字母 | 红方 | 黑方 |
-|------|---------|------|------|
-| king | k | 帅 | 将 |
-| advisor | a | 仕 | 士 |
-| bishop | b | 相 | 象 |
-| rook | r | 俥 | 车 |
-| knight | n | 傌 | 马 |
-| cannon | c | 炮 | 砲 |
-| pawn | p | 兵 | 卒 |
+| 角色    | FEN 字母 | 红方 | 黑方 |
+| ------- | -------- | ---- | ---- |
+| king    | k        | 帅   | 将   |
+| advisor | a        | 仕   | 士   |
+| bishop  | b        | 相   | 象   |
+| rook    | r        | 俥   | 车   |
+| knight  | n        | 傌   | 马   |
+| cannon  | c        | 炮   | 砲   |
+| pawn    | p        | 兵   | 卒   |
 
 ### 棋盘坐标
 

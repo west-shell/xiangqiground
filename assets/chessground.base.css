@@ -212,11 +212,13 @@ xq-board square.selected {
 }
 
 xq-board square.check {
-  background: radial-gradient(ellipse at center,
-      rgba(255, 0, 0, 1) 0%,
-      rgba(231, 0, 0, 1) 25%,
-      rgba(169, 0, 0, 0) 89%,
-      rgba(158, 0, 0, 0) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(231, 0, 0, 1) 25%,
+    rgba(169, 0, 0, 0) 89%,
+    rgba(158, 0, 0, 0) 100%
+  );
 }
 
 xq-board square.current-premove {

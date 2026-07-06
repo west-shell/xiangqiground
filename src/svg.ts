@@ -240,9 +240,10 @@ function renderCircle(
   pendingErase: boolean,
 ): SVGElement {
   const widths = circleWidth(),
-    radius = bounds.width && bounds.height
-      ? (bounds.width + bounds.height) / (4 * Math.max(bounds.width, bounds.height))
-      : 0;
+    radius =
+      bounds.width && bounds.height
+        ? (bounds.width + bounds.height) / (4 * Math.max(bounds.width, bounds.height))
+        : 0;
   return setAttributes(createElement('circle'), {
     stroke: brush.color,
     'stroke-width': widths[current ? 0 : 1],

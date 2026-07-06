@@ -62,9 +62,7 @@ export function renderWrap(element: HTMLElement, s: HeadlessState): Elements {
     const bottomFiles = [...bottomSrc].reverse();
     const topFiles = [...topSrc];
 
-    container.appendChild(
-      renderCoords(topFiles, 'files top', s.orientation === 'white' ? 'black' : 'white'),
-    );
+    container.appendChild(renderCoords(topFiles, 'files top', s.orientation === 'white' ? 'black' : 'white'));
     container.appendChild(
       renderCoords(bottomFiles, 'files bottom', s.orientation === 'white' ? 'white' : 'black'),
     );
