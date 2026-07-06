@@ -1,8 +1,7 @@
 {
   "name": "xiangqiground",
   "version": "1.0.0",
-  "//": "version is managed by the build system",
-  "description": "chessround for Chinese chess (xiangqi)",
+  "description": "Xiangqi (Chinese Chess) board UI — drag & drop, SVG drawing, animations, zero dependencies",
   "type": "module",
   "main": "dist/chessground.js",
   "types": "chessground.d.ts",
@@ -47,19 +46,17 @@
     "/assets/*.css",
     "/src/*.ts"
   ],
-  "repository": "https://github.com/west-shell/chessground-xq",
+  "repository": "https://github.com/west-shell/xiangqiground",
   "keywords": [
-    "chess",
     "xiangqi",
-    "lichess",
-    "lichess.org",
+    "chinese-chess",
     "chessboard",
     "ui",
     "typescript"
   ],
-  "author": "weshell<weshell@foxmail.com>",
+  "author": "weshell <weshell@foxmail.com>",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/west-shell/chessground-xq/issues"
+    "url": "https://github.com/west-shell/xiangqiground/issues"
   }
 }
