@@ -1,8 +1,8 @@
 /**
- * chessground.board.css — 中国象棋棋盘背景图
+ * xiangqiground.board.css — 中国象棋棋盘背景图
  *
  * 将 SVG 棋盘网格硬编码为 base64 data URI。
- * 仅包含棋盘背景，交互样式见 chessground.base.css。
+ * 仅包含棋盘背景，交互样式见 xiangqiground.base.css。
  *
  * 生成命令：node scripts/gen-board.js
  */

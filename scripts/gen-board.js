@@ -2,7 +2,7 @@
  * gen-board.js — 生成中国象棋棋盘 SVG 并输出到 CSS 文件
  *
  * 将棋盘 SVG 硬编码为 base64 data URI，嵌入到 CSS 中，
- * 如同 chessground.cburnett.css 对棋子做的那样。
+ * 如同 xiangqiground.piece.css 对棋子做的那样。
  *
  * 用法：node scripts/gen-board.js
  */
@@ -141,10 +141,10 @@ const svg = buildSvg();
 const b64 = Buffer.from(svg, 'utf-8').toString('base64');
 
 const css = `/**
- * chessground.board.css — 中国象棋棋盘背景图
+ * xiangqiground.board.css — 中国象棋棋盘背景图
  *
  * 将 SVG 棋盘网格硬编码为 base64 data URI。
- * 仅包含棋盘背景，交互样式见 chessground.base.css。
+ * 仅包含棋盘背景，交互样式见 xiangqiground.base.css。
  *
  * 生成命令：node scripts/gen-board.js
  */
@@ -155,4 +155,4 @@ xq-board {
 }
 `;
 
-fs.writeFileSync('assets/chessground.board.css', css, 'utf-8');
+fs.writeFileSync('assets/xiangqiground.board.css', css, 'utf-8');
