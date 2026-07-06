@@ -1,6 +1,6 @@
 # Xiangqiground
 
-[中文](README.zh-CN.md)
+[English](README.md) | [中文](README.zh-CN.md)
 
 An interactive Xiangqi (Chinese Chess) board UI library.
 Forked from [@lichess-org/chessground](https://github.com/lichess-org/chessground) and adapted for Xiangqi: board changed to 9 columns × 10 rows, chess roles replaced with Xiangqi roles, premove rules rewritten for Xiangqi mobility (蹩马腿, 塞象眼, 将帅对面, etc.), coordinate labels switched to Chinese/Arabic numerals, CSS prefix changed from `cg-` to `xq-`. Zero dependencies, no chess logic inside.

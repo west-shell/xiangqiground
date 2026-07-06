@@ -1,6 +1,6 @@
 # Xiangqiground
 
-[English](README.md)
+[English](README.md) | [中文](README.zh-CN.md)
 
 交互式象棋棋盘 UI 库。
 
