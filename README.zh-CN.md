@@ -1,5 +1,7 @@
 # Xiangqiground
 
+[English](README.md)
+
 交互式象棋棋盘 UI 库。
 
 基于 [@lichess-org/chessground](https://github.com/lichess-org/chessground) 改写，适配象棋：棋盘改为 9 路 × 10 行，棋子角色替换为象棋角色，预走棋规则重写为象棋走法（蹩马腿、塞象眼、将帅对面等），坐标标签改为中文数字/阿拉伯数字，CSS 前缀从 `cg-` 改为 `xq-`。零依赖，不含棋规逻辑。
@@ -86,5 +88,3 @@ pnpm run format       # oxfmt 格式化
 ## 许可证
 
 GPL-3.0-or-later，详见 [LICENSE](LICENSE)。
-
-[English](README.md)
