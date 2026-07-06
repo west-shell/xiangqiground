@@ -85,3 +85,5 @@ pnpm run format       # oxfmt
 ## License
 
 GPL-3.0-or-later. See [LICENSE](LICENSE).
+
+[中文](README.zh-CN.md)
